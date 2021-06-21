@@ -12,7 +12,8 @@ citySubmitEl.addEventListener("click", (event) => {
     .then(function(data) {
         console.log(data),
         drawWeather(data),
-        getUVI(data);
+        getUVI(data),
+        $("form").trigger('reset');
         // getFiveDay(data);
      })
 //   .catch(function() { // catch any errors
@@ -24,7 +25,7 @@ function drawWeather(data) {
 	var fahrenheit = Math.round(((parseFloat(data.main.temp)-273.15)*1.8)+32); 
 	var description = data.weather[0].description;
     var icon = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-    var date = new Date().toLocaleString();
+    var date = new Date(new Date().getTime() + new Date().getTimezoneOffset()*60000 + (1000*data.timezone)).toLocaleString();
     var mphWind = Math.round(parseFloat(data.wind.speed)*2.23894)
 
 	document.getElementById('forecast-heading').innerHTML = "Current Forecast:";
@@ -36,7 +37,9 @@ function drawWeather(data) {
     document.getElementById('humidity').innerHTML = "Humidity: " + data.main.humidity + "%";
     document.getElementById('wind-speed').innerHTML = "Wind Speed: " + data.wind.speed + " m/s (" + mphWind + " mph)";
     //UV-Index: "The product retired on 1st April 2021, please find UVI data in One Call API" ~https://openweathermap.org/api
-    //document.getElementById('UV-index').innerHTML = "UV-Index: " + ;
+    //Would use:
+    //document.getElementById('UV-index').innerHTML = "UV-Index: " + var;
+    //Used One Call API instead.
     
 	
 // 	if( description.indexOf('rain') > 0 ) {
@@ -65,11 +68,25 @@ function getUVI(data) {
      })
 }
 
-// function getFiveDay(data) {
+function getFiveDay(data) {
+    var fiveDayForecast = document.getElementById("five-day-forecast");
     
-//forEach(element)
-
-//}
-
-
-// }
+    var fdHeaderEl = document.createElement("div");
+    fdHeaderEl.className = "fd-heading";
+    fdHeaderEl.id = "fd-heading";
+    fdHeaderEl.innerHTML = "Five Day Forecast:";
+    fiveDayForecast.append(fdHeaderEl);
+    
+    
+    for (var i=0; i<5; i++) {
+        var El = document.createElement("div");
+        El.className = "fd-card";
+        El.id = "fd-" + i;
+        fiveDayForecast.append(El);
+        var El = document.createElement("div");
+        El.className = "fd-card";
+        El.id = "fd-" + i;
+        El.innerHTML = ""
+        fiveDayForecast.append(El);
+    }  
+}
