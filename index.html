@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Update</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <!-- Top Bar, can become a nav bar later -->
+    </header>
+    <div class="container" id="main">
+        <div class="container" id="dashboard-header">
+            <h1 id="dashboard-header-text">
+                Weather Update
+            </h1>
+        </div>
+        <div class="row" id="row-one">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" id="left-col">
+                <form>
+                    <label for="city-box" id="city-label">City Search:</label>
+                    <input type="text" class="form-control" id="city-box" autocomplete="off" placeholder="What's your city?">
+                    <input type="submit" id="city-submit" value="submit">
+                </form>
+                <div class="search-history" id="city-list">
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" id="right-col">
+                <!-- col-xs-12 col-sm-12 col-md-12 col-lg-3 -->
+                <div class="container" id="city-data">
+                    <div id="forecast-heading"></div>
+                    <div id="location"></div>
+                    <div id="date"></div>
+                    <div id="temp"></div>
+                    <div id="icon"></div>
+                    <div id="description"></div>
+                    <div id="humidity"></div>
+                    <div id="wind-speed"></div>
+                    <div id="UV-index"></div>
+                </div>
+                <div class="" id="bottom-col">
+                    <!-- <div class="five-day-card" id="fd-one">
+                        <div id="fd-forecast-heading-one"></div>
+                        <div id="fd-date-one"></div>
+                        <div id="fd-temp-one"></div>
+                        <div id="fd-icon-one"></div>
+                        <div id="fd-description-one"></div>
+                        <div id="fd-humidity-one"></div>
+                        <div id="fd-wind-speed-one"></div>
+                        <div id="fd-UV-index-one"></div>
+                    </div>
+                    <div class="five-day-card" id="fd-two"></div>
+                        <div id="fd-forecast-heading-two"></div>
+                        <div id="fd-date-two"></div>
+                        <div id="fd-temp-two"></div>
+                        <div id="fd-icon-two"></div>
+                        <div id="fd-description-two"></div>
+                        <div id="fd-humidity-two"></div>
+                        <div id="fd-wind-speed-two"></div>
+                        <div id="fd-UV-index-two"></div>
+                    <div class="five-day-card" id="fd-three"></div>
+                    <div class="five-day-card" id="fd-four"></div>
+                    <div class="five-day-card" id="fd-five"></div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-text" id="footer-text">
+            Website by T.A.Lovett GitHub: @PurpleAmaranth
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
